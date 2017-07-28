@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>OddJobs</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Welcome to Oddjobs</a></h1>
+        </div>
+	{% for listing in listings %}
+		<div>
+			<i><p>published: {{ listing.created_date }}</p></i>
+			<h2><a href="">{{ listing.title }}</a></h2>
+			<p>{{ listing.listing_descr|linebreaksbr }}</p>		
+		</div>
+	{% endfor %}
+    </body>
+</html>

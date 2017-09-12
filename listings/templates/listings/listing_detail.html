@@ -1,0 +1,13 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+    <div class="listing">
+    	{% if listing.created_date %}
+    		<div class="date">
+    			{{ listing.created_date }}
+    		</div>
+    	{% endif %}
+    	<h1>{{  listing.title }}</h1>
+    	<p>{{  listing.listing_dscr|linebreaksbr }}</p>
+    </div>
+{% endblock %}

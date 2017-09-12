@@ -1,25 +1,13 @@
-<html>
-    <head>
-        <title>OddJobs</title>
-    </head>
-    <body>
-        <div>
-            <center>
-                <h1>
-                    <a href="">Welcome to Oddjobs</a>
-                </h1>
-                <h3><em>Any job you want</em></h3>
-            </center>
-        </div>
-        <br />
-	<ul>
+{% extends 'listings/base.html' %}
+
+{% block content %}
     {% for listing in listings %}
-        <div>
-			<h2><a href="">{{ listing.title }}</a></h2>
-			<i><p>published: {{ listing.created_date }}</p></i>
-            <p>{{ listing.listing_dscr|linebreaksbr }}</p>		
-		</div>
-	{% endfor %}
-    </ul>
-    </body>
-</html>
+        <div class="listing">
+            <h2><a href="{% url 'listing_detail' pk=listing.pk %}" id="listing_title">{{ listing.title }}</a></h2>
+                <div class="date">
+                <p id="created_date">published: {{ listing.created_date }}</p>
+                </div>
+            <p id="listing_dscr">{{ listing.listing_dscr|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

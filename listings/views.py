@@ -9,7 +9,7 @@ def index(request):
 	return render(request, 'listings/index.html', {'listings': listings})
 
 def listing_detail(request, pk):
-	listing = get_object_or_404(listing, pk=pk)
+	listing = get_object_or_404(Listing, pk=pk)
 	return render(request, 'listings/listing_detail.html', {'listing': listing})
 """
 was:

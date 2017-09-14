@@ -11,7 +11,9 @@
     </head>
     <body>
         <div class="page-header" align="center">
+            {% if user.is_authenticated %}
             <a href="{% url 'listing_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
             <h1><a href="/">Welcome to Oddjobs</a></h1>
             <h3><em>Any job you want</em></h3>
         </center>

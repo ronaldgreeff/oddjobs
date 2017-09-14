@@ -9,7 +9,6 @@ class ListingForm(forms.ModelForm):
 		model = Listing
 		fields = ('title','listing_dscr',)
 
-
 """
 Model Reference:
 

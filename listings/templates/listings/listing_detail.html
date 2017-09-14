@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="listing">
+    	<a class="btn btn-default" href="{% url 'listing_edit' pk=listing.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     	{% if listing.created_date %}
     		<div class="date">
     			{{ listing.created_date }}

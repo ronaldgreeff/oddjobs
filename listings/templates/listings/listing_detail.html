@@ -12,5 +12,25 @@
     	    	<a class="btn btn-default" href="{% url 'listing_edit' pk=listing.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     	{% endif %}
     	<p>{{  listing.listing_dscr|linebreaksbr }}</p>
+        <div>{{ listing.listee }}</div>
     </div>
 {% endblock %}
+
+"""
+class Listing(models.Model):
+    is_assigned = models.BooleanField(default=False)
+    listee = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=200)
+    listing_dscr = models.TextField(max_length=500)
+
+    created_date = models.DateTimeField(blank=True, null=True)
+    assigned_date = models.DateTimeField(blank=True, null=True)
+    completed_date = models.DateTimeField(blank=True, null=True)
+
+class Trade(models.Model):
+    trader = models.ForeignKey('auth.User')
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    amount_listed = Listing.amount_listed
+    amount_offered = models.DecimalField(max_digits=6, decimal_places=2)
+    amount_accepted = models.DecimalField(max_digits=6, decimal_places=2)
+"""

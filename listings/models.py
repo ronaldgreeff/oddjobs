@@ -7,17 +7,14 @@ class Listing(models.Model):
 	listee = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
 	listing_dscr = models.TextField(max_length=500)
-
+	amount_listed = models.DecimalField(max_digits=6, decimal_places=2)
 	created_date = models.DateTimeField(blank=True, null=True)
 	assigned_date = models.DateTimeField(blank=True, null=True)
 	completed_date = models.DateTimeField(blank=True, null=True)
 
 	def create(self):
 		self.created_date = timezone.now()
-		self.save()
-
-	def amount_listed(self):
-		self.amount_listed = models.DecimalField(max_digits=6, decimal_places=2)
+		self.save() 
 
 	def __str__(self):
 		return self.title
@@ -25,7 +22,6 @@ class Listing(models.Model):
 class Trade(models.Model):
 	trader = models.ForeignKey('auth.User')
 	listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-	amount_listed = Listing.amount_listed
 	amount_offered = models.DecimalField(max_digits=6, decimal_places=2)
 	amount_accepted = models.DecimalField(max_digits=6, decimal_places=2)
 	

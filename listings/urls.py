@@ -7,5 +7,6 @@ urlpatterns = [
 	url(r'^listing/(?P<pk>\d+)/$', views.listing_detail, name='listing_detail'),
 	url(r'^listing/new/$', views.listing_new, name='listing_new'),
 	url(r'^listing/(?P<pk>\d+)/edit/$', views.listing_edit, name='listing_edit'),
+	url(r'^listing/(?P<pk>\d+)/offer/$', views.listing_offer, name='listing_offer'),
 ]
 # Create your urls here.

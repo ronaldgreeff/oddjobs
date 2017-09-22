@@ -10,7 +10,9 @@
     	<a class="btn btn-default" href="{% url 'listing_edit' pk=listing.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     	{% endif %}
     	<p>{{  listing.listing_dscr|linebreaksbr }}</p>
-        <div>{{ listing.listee }}</div>
+        <div>
+        <p>{{ listing.listee }} {{ listing.amount_listed }}</p>
+        </div>
     </div>
 {% endblock %}
 

@@ -7,7 +7,11 @@
                 <div class="date">
                 <p id="created_date">published: {{ listing.created_date }}</p>
                 </div>
-            <p id="listing_dscr">{{ listing.listing_dscr|linebreaksbr }}</p>
+            <p id="listing_dscr">{{ listing.listing_dscr }}</p>
+            <p id="amount_listed">{{ listing.amount_listed|linebreaksbr }}</p>
         </div>
+        {% if user.is_authenticated %}
+    	<a href="{% url 'listing_detail' pk=listing.pk %}">Make Offer</a>
+    	{% endif %}
     {% endfor %}
 {% endblock %}	

@@ -11,7 +11,7 @@ class TradeForm(ModelForm):
 	class Meta:
 		model = Trade
 # in the example, collingrady.wp, he excludes the foreign.key containing model attribute, in our case being:
-		exclude = ('listing',)
+		fields = ('amount_offered',)
 """Model Reference:
 Listing:
 	is_assigned = models.BooleanField(default=False)

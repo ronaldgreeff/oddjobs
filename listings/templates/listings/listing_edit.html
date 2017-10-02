@@ -1,9 +1,11 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
+	<div class="listing_edit">
 	<h1>What do you need done?</h1>
 	<form method="POST" class="post-form">{% csrf_token %}
 	{{ form.as_p }}
 	<button type="submit">Save</button>
 	</form>
+</div>
 {% endblock %}

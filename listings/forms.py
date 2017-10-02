@@ -1,17 +1,15 @@
 from django.forms import ModelForm
-
 from . models import Listing, Trade
 
 class ListingForm(ModelForm):
 	class Meta:
 		model = Listing
-		fields = ('title', 'listing_dscr', 'amount_listed',)
+		fields = ('title', 'listing_dscr', 'amount_listed','created_date','assigned_date','completed_date',)
 
 class TradeForm(ModelForm):
 	class Meta:
 		model = Trade
-# in the example, collingrady.wp, he excludes the foreign.key containing model attribute, in our case being:
-		fields = ('amount_offered',)
+		fields = ('amount_offered', 'amount_accepted',)
 """Model Reference:
 Listing:
 	is_assigned = models.BooleanField(default=False)
@@ -21,10 +19,11 @@ Listing:
 	created_date = models.DateTimeField(blank=True, null=True)
 	assigned_date = models.DateTimeField(blank=True, null=True)
 	completed_date = models.DateTimeField(blank=True, null=True)
+	amount_listed
+
 Trade:
 	trader = models.ForeignKey('auth.User')
 	listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-	amount_listed = Listing.amount_listed
 	amount_offered = models.DecimalField(max_digits=6, decimal_places=2)
 	amount_accepted = models.DecimalField(max_digits=6, decimal_places=2)
 	

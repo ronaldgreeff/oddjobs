@@ -11,7 +11,7 @@
             <p id="amount_listed">{{ listing.amount_listed|linebreaksbr }}</p>
         </div>
         {% if user.is_authenticated %}
-    	<a href="{% url 'listing_detail' pk=listing.pk %}">Make Offer</a>
+    	<a href="{% url 'listing_offer' pk=listing.pk %}">Make Offer</a>
     	{% endif %}
     {% endfor %}
 {% endblock %}	

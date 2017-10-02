@@ -9,6 +9,7 @@ class Listing(models.Model):
 	listing_dscr = models.TextField(max_length=500)
 	amount_listed = models.DecimalField(max_digits=6, decimal_places=2)
 	created_date = models.DateTimeField(blank=True, null=True)
+#move assigned/completed
 	assigned_date = models.DateTimeField(blank=True, null=True)
 	completed_date = models.DateTimeField(blank=True, null=True)
 
@@ -24,6 +25,9 @@ class Trade(models.Model):
 	listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
 	amount_offered = models.DecimalField(max_digits=6, decimal_places=2)
 	amount_accepted = models.DecimalField(max_digits=6, decimal_places=2)
+#	assigned_date = models.DateTimeField(blank=True, null=True)
+#	completed_date = models.DateTimeField(blank=True, null=True)
+
 	
 	ACCEPT = 'AC'
 	WAIT = 'WT'

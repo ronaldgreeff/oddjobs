@@ -1,20 +1,11 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <div class="listing">
-     		<div class="date">
-    			{{ listing.created_date }}
-    		</div>
-     	<h1>{{ listing.title }}</h1>
-    	<p>{{  listing.listing_dscr|linebreaksbr }}</p>
-        <div>
-        <p>{{ listing.listee }} {{ listing.amount_listed }}</p>
-        </div>
-    </div>
-
+    <div class="offer">
 	<h1>Offer</h1>
 	<form method="POST" class="post-form">{% csrf_token %}
 	{{ form.as_p }}
 	<button type="submit">Save</button>
 	</form>
+	</div>
 {% endblock %}

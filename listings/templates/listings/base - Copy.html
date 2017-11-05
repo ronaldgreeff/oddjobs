@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>OddJobs</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+            <link href="//fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+            <link href="//fonts.googleapis.com/css?family=Khula" rel="stylesheet">
+            <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+    </head>
+    <body>
+        <div class="page-header" align="center">
+            {% if user.is_authenticated %}
+            <a href="{% url 'listing_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+            <h1><a href="/">Welcome to Oddjobs</a></h1>
+            <h3><em>Any job you want</em></h3>
+        </center>
+    </div>
+    <br />
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

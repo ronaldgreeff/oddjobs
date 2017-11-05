@@ -1,7 +1,7 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <div class="offer">
+    <div class="listing_offer">
 	<h1>Offer</h1>
 	<form method="POST" class="post-form">{% csrf_token %}
 	{{ form.as_p }}
